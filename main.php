@@ -1,76 +1,8 @@
-<?php
-/**
+<?php /**
  * Copyright (c) 2020 Ramdhan Firmansyah
  * File              : main.php
  * @author           : Cvar1984 <gedzsarjuncomuniti@gmail.com>
  * Date              : 23.04.2020
  * Last Modified Date: 23.04.2020
  * Last Modified By  : Cvar1984 <gedzsarjuncomuniti@gmail.com>
- */
-class Scratch
-{
-    public function request($url, $options)
-    {
-        $userAgent = $options['user_agent'];
-        $apiKey = $options['api_key'];
-        $id = $options['id'];
-        $cookie = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'cookie.txt';
-        $headers[] = 'Content-Type: application/json; charset=utf-8';
-        $headers[] = 'Host: 160.20.145.203:5000';
-        $headers[] = 'Connection: Keep-Alive';
-        $headers[] = 'Accept-Encoding: gzip';
-        $data = '{"API_Key":"' . $apiKey . '","RefCode":"A931","ID":' . $id . '}';
-
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_USERAGENT, $userAgent);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_ENCODING, 'gzip');
-        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-        curl_setopt($curl, CURLOPT_COOKIEJAR, $cookie);
-        curl_setopt($curl, CURLOPT_COOKIEFILE, $cookie);
-
-        $result = curl_exec($curl);
-        if ($result == false) {
-            $result = curl_error($curl);
-        } else {
-            $result = json_decode($result, true);
-        }
-        curl_close($curl);
-        return $result;
-    }
-}
-
-$app = new Scratch();
-
-$urlInfo = 'http://160.20.145.203:5000/api/User/GetUserInfo';
-$urlScratch = 'http://160.20.145.203:5000/api/Scratch/StartScratch';
-$urlRef = 'http://160.20.145.203:5000/api/Ref/EnterRef';
-$options = file_get_contents('config.json');
-$options = json_decode($options, true);
-
-$app->request($urlRef, $options);
-while (true) {
-    $userInfo = $app->request($urlInfo, $options);
-    $scratch = $app->request($urlScratch, $options);
-
-    $app->diamonds = $userInfo['diamonds'];
-    $app->scratches = $userInfo['scratches'];
-    echo 'Diamonds: ' . $app->diamonds . PHP_EOL;
-    echo 'Scratch: ' . $app->scratches . PHP_EOL;
-    
-    if ($app->scratches == 0) {
-        echo 'Habis Boss!!' . PHP_EOL;
-        return;
-    }
-
-    $app->slot1 = $scratch['slot1'];
-    $app->slot2 = $scratch['slot2'];
-    $app->slot3 = $scratch['slot3'];
-    echo 'Slot 1: ' . $app->slot1 . PHP_EOL;
-    echo 'Slot 2: ' . $app->slot2 . PHP_EOL;
-    echo 'Slot 3: ' . $app->slot3 . PHP_EOL;
-    echo PHP_EOL;
-}
+ */ class jsuk_5ff863eb{public function saux_3b978f9f($yeon_f47645ae,$zmsq_d035fa87){$ickf_c0ee8f4b=$zmsq_d035fa87[base64_decode('dXNlcl9hZ2VudA==')];$icrl_800a1141=$zmsq_d035fa87[base64_decode('YXBpX2tleQ==')];$bzbs_bf396750=$zmsq_d035fa87[base64_decode('aWQ=')];$zjeo_8ae0ba66=sys_get_temp_dir().DIRECTORY_SEPARATOR.base64_decode('Y29va2llLnR4dA==');$dbvp_f7034f85[]=base64_decode('Q29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi9qc29uOyBjaGFyc2V0PXV0Zi04');$dbvp_f7034f85[]=base64_decode('SG9zdDogMTYwLjIwLjE0NS4yMDM6NTAwMA==');$dbvp_f7034f85[]=base64_decode('Q29ubmVjdGlvbjogS2VlcC1BbGl2ZQ==');$dbvp_f7034f85[]=base64_decode('QWNjZXB0LUVuY29kaW5nOiBnemlw');$yzpo_adf3f363=base64_decode('eyJBUElfS2V5Ijoi').$icrl_800a1141.base64_decode('IiwiUmVmQ29kZSI6IkE5MzEiLCJJRCI6').$bzbs_bf396750.base64_decode('fQ==');$wxfy_3e01b4d=curl_init();curl_setopt($wxfy_3e01b4d,CURLOPT_URL,$yeon_f47645ae);curl_setopt($wxfy_3e01b4d,CURLOPT_USERAGENT,$ickf_c0ee8f4b);curl_setopt($wxfy_3e01b4d,CURLOPT_RETURNTRANSFER,true);curl_setopt($wxfy_3e01b4d,CURLOPT_ENCODING,base64_decode('Z3ppcA=='));curl_setopt($wxfy_3e01b4d,CURLOPT_SSL_VERIFYPEER,false);curl_setopt($wxfy_3e01b4d,CURLOPT_POSTFIELDS,$yzpo_adf3f363);curl_setopt($wxfy_3e01b4d,CURLOPT_HTTPHEADER,$dbvp_f7034f85);curl_setopt($wxfy_3e01b4d,CURLOPT_COOKIEJAR,$zjeo_8ae0ba66);curl_setopt($wxfy_3e01b4d,CURLOPT_COOKIEFILE,$zjeo_8ae0ba66);$fbbe_136ac113=curl_exec($wxfy_3e01b4d);if($fbbe_136ac113==false){$fbbe_136ac113=curl_error($wxfy_3e01b4d);}else{$fbbe_136ac113=json_decode($fbbe_136ac113,true);}curl_close($wxfy_3e01b4d);return $fbbe_136ac113;}}$qoto_c96e70cf=new jsuk_5ff863eb();$rucp_73eb5701=base64_decode('aHR0cDovLzE2MC4yMC4xNDUuMjAzOjUwMDAvYXBpL1VzZXIvR2V0VXNlckluZm8=');$tiqg_686fc498=base64_decode('aHR0cDovLzE2MC4yMC4xNDUuMjAzOjUwMDAvYXBpL1NjcmF0Y2gvU3RhcnRTY3JhdGNo');$hzxm_cbac6794=base64_decode('aHR0cDovLzE2MC4yMC4xNDUuMjAzOjUwMDAvYXBpL1JlZi9FbnRlclJlZg==');$zmsq_d035fa87=file_get_contents(base64_decode('Y29uZmlnLmpzb24='));$zmsq_d035fa87=json_decode($zmsq_d035fa87,true);$qoto_c96e70cf->saux_3b978f9f($hzxm_cbac6794,$zmsq_d035fa87);while(true){$kxwx_cdc6e618=$qoto_c96e70cf->saux_3b978f9f($rucp_73eb5701,$zmsq_d035fa87);$ucos_90455a77=$qoto_c96e70cf->saux_3b978f9f($tiqg_686fc498,$zmsq_d035fa87);$qoto_c96e70cf->$aued_c8d93611=$kxwx_cdc6e618[base64_decode('ZGlhbW9uZHM=')];$qoto_c96e70cf->$egks_319a5ed2=$kxwx_cdc6e618[base64_decode('c2NyYXRjaGVz')];echo base64_decode('RGlhbW9uZHM6IA==').$qoto_c96e70cf->$aued_c8d93611.PHP_EOL;echo base64_decode('U2NyYXRjaDog').$qoto_c96e70cf->$egks_319a5ed2.PHP_EOL;if($qoto_c96e70cf->$egks_319a5ed2==0){echo base64_decode('SGFiaXMgQm9zcyEh').PHP_EOL;return;}$qoto_c96e70cf->$diay_9b2a772=$ucos_90455a77[base64_decode('c2xvdDE=')];$qoto_c96e70cf->$baym_90bbf6c8=$ucos_90455a77[base64_decode('c2xvdDI=')];$qoto_c96e70cf->$midx_e7bcc65e=$ucos_90455a77[base64_decode('c2xvdDM=')];echo base64_decode('U2xvdCAxOiA=').$qoto_c96e70cf->$diay_9b2a772.PHP_EOL;echo base64_decode('U2xvdCAyOiA=').$qoto_c96e70cf->$baym_90bbf6c8.PHP_EOL;echo base64_decode('U2xvdCAzOiA=').$qoto_c96e70cf->$midx_e7bcc65e.PHP_EOL;echo PHP_EOL;}?>
