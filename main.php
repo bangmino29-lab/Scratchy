@@ -58,17 +58,19 @@ while (true) {
 
     $app->diamonds = $userInfo['diamonds'];
     $app->scratches = $userInfo['scratches'];
+    echo 'Diamonds: ' . $app->diamonds . PHP_EOL;
+    echo 'Scratch: ' . $app->scratches . PHP_EOL;
+    
+    if ($app->scratches == 0) {
+        echo 'Habis Boss!!' . PHP_EOL;
+        return;
+    }
+
     $app->slot1 = $scratch['slot1'];
     $app->slot2 = $scratch['slot2'];
     $app->slot3 = $scratch['slot3'];
-    echo 'Diamonds: ' . $app->diamonds . PHP_EOL;
-    echo 'Scratch: ' . $app->scratches . PHP_EOL;
     echo 'Slot 1: ' . $app->slot1 . PHP_EOL;
     echo 'Slot 2: ' . $app->slot2 . PHP_EOL;
     echo 'Slot 3: ' . $app->slot3 . PHP_EOL;
     echo PHP_EOL;
-    if ($app->scratches == 0) {
-        echo 'Habis Boss!!' . PHP_EOL;
-        break;
-    }
 }
